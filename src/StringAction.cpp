@@ -1,13 +1,13 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.0.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.1.
     Released into the public domain.
 */
 
 #include <StringAction.h>
 
 
-StringAction::rs(String & istr, int wait_delay){
+void StringAction::rs(String & istr, int wait_delay){
   String b = "";
   char a = '\0';
   unsigned long cms = millis();
@@ -21,7 +21,7 @@ StringAction::rs(String & istr, int wait_delay){
   istr = b;
 }
 
-StringAction::split (String s, String split_arr[], String delimeter, int max_length) {
+void StringAction::split (String s, String split_arr[], String delimeter, int max_length) {
   int i = 0;
   int a = s.indexOf(delimeter);
   while (a != -1) {

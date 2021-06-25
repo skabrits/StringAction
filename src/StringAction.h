@@ -1,6 +1,6 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.0.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.1.
     Released into the public domain.
 */
 
@@ -28,8 +28,6 @@ class StringAction
     // @parameter: split_arr -- array to which splited strings are written
     // @parameter: delimeter -- string by which s is splitted
     // @parameter: max_length -- integer length of split_arr, if default, writes to split array until string has parts separated by delimeter
-    
-  private:
   
 };
 
