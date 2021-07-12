@@ -12,12 +12,14 @@ void StringAction::rs(String & istr, int wait_delay){
   String b = "";
   char a = '\0';
   unsigned long cms = millis();
+    
   while (a != '\n' && abs(millis() - cms) < wait_delay){
     if (Serial.available()){
       b += String(a);
       a = Serial.read();
     }
   }
+    
   b.trim();
   istr = b;
 }
