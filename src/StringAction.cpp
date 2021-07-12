@@ -1,6 +1,6 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.1.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.2.
     Released into the public domain.
 */
 
@@ -19,6 +19,20 @@ void StringAction::rs(String & istr, int wait_delay){
   }
   b.trim();
   istr = b;
+}
+
+void StringAction:rs(String & istr, SoftwareSerial port, int wait_delay = 500){
+    String b = "";
+    char a = '\0';
+    unsigned long cms = millis();
+    while (a != '\n' && abs(millis() - cms) < wait_delay){
+      if (Serial.available()){
+        b += String(a);
+        a = port.read();
+      }
+    }
+    b.trim();
+    istr = b;
 }
 
 void StringAction::split (String s, String split_arr[], String delimeter, int max_length) {

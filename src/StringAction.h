@@ -1,6 +1,6 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.1.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.2.
     Released into the public domain.
 */
 
@@ -13,6 +13,8 @@
 #include "WProgram.h"
 #endif
 
+#include "SoftwareSerial.h"
+
 class StringAction
 {
   public:
@@ -21,6 +23,11 @@ class StringAction
     // reads string from serial
     // @parameter: istr -- string to write read data to
     // @parameter: wait_delay -- integer delay in ms after wich reading stops
+    
+    void rs(String & istr, SoftwareSerial port, int wait_delay = 500);
+    // reads string from serial
+    // @parameter: istr -- string to write read data to
+    // @parameter: wait_delay -- integer delay in ms after which reading stops
 
     void split (String s, String split_arr[], String delimeter, int max_length = -1);
     // splits string to string array by delimeter
