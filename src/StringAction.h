@@ -1,6 +1,6 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.2.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.3.
     Released into the public domain.
 */
 
