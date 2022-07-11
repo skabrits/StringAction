@@ -1,6 +1,6 @@
 /*
     StringAction.cpp - Library for processing strings and reading from serial.
-    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.3.
+    Created by Vsevolod Kabrits, June 26, 2021. Version 1.0.5.
     Released into the public domain.
 */
 
@@ -24,11 +24,11 @@ class StringAction
     // @parameter: istr -- string to write read data to
     // @parameter: wait_delay -- integer delay in ms after wich reading stops
     
-    void rs(String & istr, int wait_delay = 500, volatile bool & inter);
+    void rs(String & istr, volatile bool & inter, int wait_delay = 500);
     // reads string from serial
     // @parameter: istr -- string to write read data to
-    // @parameter: wait_delay -- integer delay in ms after wich reading stops
     // @parameter: inter -- interrupt variable, if equals 1 waiting for the data ends
+    // @parameter: wait_delay -- integer delay in ms after wich reading stops
     
     void rs(String & istr, SoftwareSerial port, int wait_delay = 500);
     // reads string from serial
@@ -36,12 +36,12 @@ class StringAction
     // @parameter: port -- software serial port to read from
     // @parameter: wait_delay -- integer delay in ms after which reading stops
     
-    void rs(String & istr, SoftwareSerial port, int wait_delay = 500, volatile bool & inter);
+    void rs(String & istr, SoftwareSerial port, volatile bool & inter, int wait_delay = 500);
     // reads string from serial
     // @parameter: istr -- string to write read data to
     // @parameter: port -- software serial port to read from
-    // @parameter: wait_delay -- integer delay in ms after which reading stops
     // @parameter: inter -- interrupt variable, if equals 1 waiting for the data ends
+    // @parameter: wait_delay -- integer delay in ms after which reading stops
 
     void split (String s, String split_arr[], String delimeter, int max_length = -1);
     // splits string to string array by delimeter
