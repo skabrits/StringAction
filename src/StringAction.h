@@ -24,10 +24,24 @@ class StringAction
     // @parameter: istr -- string to write read data to
     // @parameter: wait_delay -- integer delay in ms after wich reading stops
     
+    void rs(String & istr, int wait_delay = 500, volatile bool & inter);
+    // reads string from serial
+    // @parameter: istr -- string to write read data to
+    // @parameter: wait_delay -- integer delay in ms after wich reading stops
+    // @parameter: inter -- interrupt variable, if equals 1 waiting for the data ends
+    
     void rs(String & istr, SoftwareSerial port, int wait_delay = 500);
     // reads string from serial
     // @parameter: istr -- string to write read data to
+    // @parameter: port -- software serial port to read from
     // @parameter: wait_delay -- integer delay in ms after which reading stops
+    
+    void rs(String & istr, SoftwareSerial port, int wait_delay = 500, volatile bool & inter);
+    // reads string from serial
+    // @parameter: istr -- string to write read data to
+    // @parameter: port -- software serial port to read from
+    // @parameter: wait_delay -- integer delay in ms after which reading stops
+    // @parameter: inter -- interrupt variable, if equals 1 waiting for the data ends
 
     void split (String s, String split_arr[], String delimeter, int max_length = -1);
     // splits string to string array by delimeter

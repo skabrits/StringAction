@@ -24,6 +24,25 @@ void StringAction::rs(String & istr, int wait_delay){
   istr = b;
 }
 
+void StringAction::rs(String & istr, int wait_delay, volatile bool & inter){
+  String b = "";
+  char a = '\0';
+  unsigned long cms = millis();
+    
+  while (a != '\n' && abs(millis() - cms) < wait_delay){
+    if (Serial.available()){
+      b += String(a);
+      a = Serial.read();
+    }
+    if (inter){
+      break;
+    }
+  }
+    
+  b.trim();
+  istr = b;
+}
+
 void StringAction::rs(String & istr, SoftwareSerial port, int wait_delay){
     String b = "";
     char a = '\0';
@@ -32,6 +51,23 @@ void StringAction::rs(String & istr, SoftwareSerial port, int wait_delay){
       if (Serial.available()){
         b += String(a);
         a = port.read();
+      }
+    }
+    b.trim();
+    istr = b;
+}
+
+void StringAction::rs(String & istr, SoftwareSerial port, int wait_delay, volatile bool & inter){
+    String b = "";
+    char a = '\0';
+    unsigned long cms = millis();
+    while (a != '\n' && abs(millis() - cms) < wait_delay){
+      if (Serial.available()){
+        b += String(a);
+        a = port.read();
+      }
+      if (inter){
+        break;
       }
     }
     b.trim();
